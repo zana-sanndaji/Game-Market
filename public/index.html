@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>digital market</title>
+    <link rel="stylesheet" href="./styles/app.css" />
+  </head>
+
+  <!-- App Icons -->
+
+  <svg class="hidden">
+    <symbol
+      id="moon"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+    >
+      <path
+        fill-rule="evenodd"
+        d="M9.528 1.718a.75.75 0 0 1 .162.819A8.97 8.97 0 0 0 9 6a9 9 0 0 0 9 9 8.97 8.97 0 0 0 3.463-.69.75.75 0 0 1 .981.98 10.503 10.503 0 0 1-9.694 6.46c-5.799 0-10.5-4.7-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 0 1 .818.162Z"
+        clip-rule="evenodd"
+      />
+    </symbol>
+    <symbol
+      id="magnifying-glass"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+    >
+      <path
+        fill-rule="evenodd"
+        d="M10.5 3.75a6.75 6.75 0 1 0 0 13.5 6.75 6.75 0 0 0 0-13.5ZM2.25 10.5a8.25 8.25 0 1 1 14.59 5.28l4.69 4.69a.75.75 0 1 1-1.06 1.06l-4.69-4.69A8.25 8.25 0 0 1 2.25 10.5Z"
+        clip-rule="evenodd"
+      />
+    </symbol>
+    <symbol
+      id="game"
+      viewBox="0 0 55 34"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g clip-path="url(#clip0_1_4835)">
+        <path
+          d="M54.5798 24.343L48.1316 6.1516C47.7748 5.1432 47.112 4.2698 46.2345 3.652C45.357 3.0342 44.3083 2.70247 43.2331 2.70264H11.767C10.6917 2.70247 9.64298 3.0342 8.76552 3.652C7.88806 4.2698 7.22519 5.1432 6.86844 6.1516L0.420257 24.343C0.0328226 25.4361 -0.0852925 26.6056 0.0758194 27.7535C0.236931 28.9014 0.672572 29.9941 1.3462 30.94C2.01983 31.8859 2.9118 32.6575 3.94731 33.1899C4.98281 33.7223 6.13164 34.0002 7.29745 34C8.4076 33.9999 9.50307 33.7478 10.5003 33.2628C11.4976 32.7779 12.3702 32.0729 13.0518 31.2017L21.1394 20.8657H33.8606L41.9592 31.2017C42.6407 32.0729 43.5134 32.7779 44.5107 33.2628C45.5079 33.7478 46.6034 33.9999 47.7135 34C48.8784 33.9984 50.0259 33.7193 51.06 33.1862C52.0941 32.653 52.9846 31.8812 53.657 30.9356C54.3294 29.9899 54.764 28.8978 54.9246 27.7508C55.0851 26.6038 54.9669 25.4352 54.5798 24.343Z"
+          fill="#56BDE9"
+        />
+        <path
+          d="M48.1316 6.1516C47.7749 5.14321 47.112 4.2698 46.2345 3.652C45.3571 3.0342 44.3083 2.70247 43.2331 2.70264H11.767C10.6918 2.70247 9.64302 3.0342 8.76556 3.652C7.8881 4.2698 7.22523 5.14321 6.86848 6.1516C6.73693 6.52168 6.68249 6.9145 6.70845 7.30617C6.73441 7.69783 6.84024 8.08015 7.01951 8.42987C8.81743 11.9453 11.5 14.9382 14.8063 17.1174C18.1125 19.2966 21.9299 20.5879 25.8869 20.8657H29.111C33.068 20.5879 36.8854 19.2966 40.1917 17.1174C43.4979 14.9382 46.1805 11.9453 47.9784 8.42987C48.158 8.0803 48.2642 7.69805 48.2906 7.30639C48.3169 6.91473 48.2628 6.52183 48.1316 6.1516Z"
+          fill="#56BDE9"
+        />
+        <path
+          d="M54.5798 24.343L48.1316 6.1516C47.7748 5.1432 47.112 4.2698 46.2345 3.652C45.357 3.0342 44.3083 2.70247 43.2331 2.70264H11.767C10.6917 2.70247 9.64298 3.0342 8.76552 3.652C7.88806 4.2698 7.22519 5.1432 6.86844 6.1516L0.420257 24.343C0.0328226 25.4361 -0.0852925 26.6056 0.0758194 27.7535C0.236931 28.9014 0.672572 29.9941 1.3462 30.94C2.01983 31.8859 2.9118 32.6575 3.94731 33.1899C4.98281 33.7223 6.13164 34.0002 7.29745 34C8.4076 33.9999 9.50307 33.7478 10.5003 33.2628C11.4976 32.7779 12.3702 32.0729 13.0518 31.2017L17.2324 25.8575C18.4484 24.3029 20.0055 23.0451 21.785 22.18C23.5644 21.3149 25.5192 20.8653 27.5 20.8657C29.4809 20.8653 31.4356 21.3149 33.2151 22.18C34.9945 23.0451 36.5517 24.3029 37.7676 25.8575L41.9482 31.2017C42.6298 32.0729 43.5025 32.7779 44.4997 33.2628C45.4969 33.7478 46.5924 33.9999 47.7026 34C48.8684 34.0002 50.0172 33.7223 51.0527 33.1899C52.0882 32.6575 52.9802 31.8859 53.6538 30.94C54.3274 29.9941 54.7631 28.9014 54.9242 27.7535C55.0853 26.6056 54.9672 25.4361 54.5798 24.343Z"
+          fill="url(#paint0_linear_1_4835)"
+        />
+        <path
+          d="M54.5797 24.343L48.1315 6.1516C47.7756 5.14268 47.1129 4.26873 46.2353 3.6508C45.3576 3.03286 44.3084 2.70152 43.233 2.70264H11.7669C10.6917 2.70248 9.6429 3.0342 8.76544 3.652C7.88798 4.2698 7.22511 5.14321 6.86837 6.1516L0.420181 24.343C0.0210034 25.459 -0.0951545 26.6557 0.0819964 27.827C0.259147 28.9983 0.724139 30.1081 1.43578 31.0581L9.13158 18.3285C9.40862 17.8698 9.77648 17.4718 10.2128 17.1586C10.6492 16.8455 11.145 16.6237 11.6702 16.5067C12.1953 16.3897 12.7389 16.3799 13.268 16.478C13.7971 16.5761 14.3006 16.78 14.748 17.0773C18.0634 19.2875 21.9043 20.5938 25.8868 20.8657H29.1109C33.1709 20.5871 37.0822 19.2348 40.4401 16.9489C40.9136 16.6219 41.4519 16.3992 42.019 16.2957C42.586 16.1921 43.1688 16.2102 43.7283 16.3486C44.2878 16.4871 44.8111 16.7427 45.2632 17.0984C45.7153 17.4541 46.0857 17.9017 46.3498 18.4112L53.1001 31.613C53.9855 30.6478 54.5909 29.4618 54.8514 28.1814C55.112 26.9011 55.0181 25.5744 54.5797 24.343Z"
+          fill="url(#paint1_linear_1_4835)"
+        />
+        <path
+          opacity="0.2"
+          d="M24.5407 14.2548C26.6358 9.22628 24.2338 3.46136 19.1758 1.37848C14.1177 -0.704396 8.31886 1.68351 6.22373 6.71203C4.12861 11.7405 6.53056 17.5055 11.5886 19.5883C16.6467 21.6712 22.4455 19.2833 24.5407 14.2548Z"
+          fill="#F7D2D1"
+        />
+        <path
+          opacity="0.2"
+          d="M49.3529 12.3467C50.3882 7.00205 46.8693 1.83504 41.4932 0.805822C36.1172 -0.223391 30.9198 3.27494 29.8845 8.61957C28.8493 13.9642 32.3682 19.1312 37.7442 20.1604C43.1203 21.1896 48.3177 17.6913 49.3529 12.3467Z"
+          fill="#F7D2D1"
+        />
+        <path
+          d="M15.3828 20.9658C13.297 20.9658 11.258 20.3509 9.52372 19.1988C7.78945 18.0467 6.4378 16.4092 5.63969 14.4934C4.84158 12.5776 4.63287 10.4695 5.03995 8.43571C5.44704 6.40197 6.45163 4.53391 7.92667 3.06778C9.40172 1.60166 11.281 0.60333 13.3268 0.19905C15.3726 -0.205231 17.493 0.00269731 19.4199 0.796538C21.3468 1.59038 22.9937 2.93447 24.1522 4.65884C25.3107 6.3832 25.9288 8.41039 25.9284 10.484C25.9249 13.2633 24.8127 15.9277 22.8357 17.8927C20.8587 19.8577 18.1784 20.9629 15.3828 20.9658ZM15.3828 1.25777C13.5473 1.25777 11.753 1.79888 10.2268 2.81267C8.70064 3.82647 7.51114 5.26741 6.80872 6.95328C6.1063 8.63916 5.92252 10.4942 6.28061 12.284C6.6387 14.0737 7.52258 15.7176 8.82048 17.008C10.1184 18.2983 11.772 19.177 13.5722 19.533C15.3725 19.889 17.2385 19.7063 18.9343 19.0079C20.63 18.3096 22.0795 17.1271 23.0992 15.6098C24.119 14.0926 24.6633 12.3088 24.6633 10.484C24.6604 8.03795 23.6817 5.69289 21.9419 3.96326C20.2021 2.23362 17.8432 1.26065 15.3828 1.25777Z"
+          fill="#D2CBFF"
+        />
+        <path
+          d="M39.6171 20.9658C37.5313 20.9658 35.4924 20.3509 33.7581 19.1988C32.0238 18.0467 30.6722 16.4092 29.8741 14.4934C29.076 12.5776 28.8672 10.4695 29.2743 8.43571C29.6814 6.40197 30.686 4.53391 32.1611 3.06778C33.6361 1.60166 35.5153 0.60333 37.5611 0.19905C39.6069 -0.205231 41.7274 0.00269731 43.6543 0.796538C45.5812 1.59038 47.2281 2.93447 48.3866 4.65884C49.5451 6.3832 50.1632 8.41039 50.1628 10.484C50.1593 13.2633 49.047 15.9277 47.07 17.8927C45.0931 19.8577 42.4127 20.9629 39.6171 20.9658ZM39.6171 1.25777C37.7816 1.25777 35.9874 1.79888 34.4612 2.81267C32.935 3.82647 31.7455 5.26741 31.0431 6.95328C30.3407 8.63916 30.1569 10.4942 30.515 12.284C30.8731 14.0737 31.757 15.7176 33.0549 17.008C34.3528 18.2983 36.0064 19.177 37.8066 19.533C39.6068 19.889 41.4728 19.7063 43.1686 19.0079C44.8644 18.3096 46.3138 17.1271 47.3336 15.6098C48.3533 14.0926 48.8976 12.3088 48.8976 10.484C48.8947 8.03795 47.916 5.69289 46.1762 3.96326C44.4364 2.23362 42.0776 1.26065 39.6171 1.25777Z"
+          fill="#D2CBFF"
+        />
+        <path
+          d="M19.4299 8.79757H17.0725V6.45837C17.0725 6.01111 16.8938 5.58217 16.5757 5.26591C16.2576 4.94965 15.8261 4.77197 15.3762 4.77197C14.9263 4.77197 14.4949 4.94965 14.1767 5.26591C13.8586 5.58217 13.6799 6.01111 13.6799 6.45837V8.79757H11.3335C10.8836 8.79757 10.4522 8.97525 10.134 9.29151C9.81593 9.60777 9.63721 10.0367 9.63721 10.484C9.63721 10.9312 9.81593 11.3602 10.134 11.6764C10.4522 11.9927 10.8836 12.1704 11.3335 12.1704H13.6865V14.5074C13.6865 14.9547 13.8652 15.3836 14.1833 15.6999C14.5014 16.0161 14.9329 16.1938 15.3828 16.1938C15.8327 16.1938 16.2641 16.0161 16.5823 15.6999C16.9004 15.3836 17.0791 14.9547 17.0791 14.5074V12.1704H19.4299C19.8798 12.1704 20.3112 11.9927 20.6293 11.6764C20.9475 11.3602 21.1262 10.9312 21.1262 10.484C21.1262 10.0367 20.9475 9.60777 20.6293 9.29151C20.3112 8.97525 19.8798 8.79757 19.4299 8.79757Z"
+          fill="white"
+        />
+        <path
+          d="M39.6171 8.27972C40.7135 8.27972 41.6023 7.3961 41.6023 6.30609C41.6023 5.21608 40.7135 4.33246 39.6171 4.33246C38.5207 4.33246 37.6318 5.21608 37.6318 6.30609C37.6318 7.3961 38.5207 8.27972 39.6171 8.27972Z"
+          fill="white"
+        />
+        <path
+          d="M41.0211 16.0572C41.7964 15.2864 41.7964 14.0368 41.0211 13.266C40.2459 12.4953 38.9889 12.4953 38.2136 13.2661C37.4383 14.0368 37.4383 15.2864 38.2136 16.0572C38.9889 16.8279 40.2459 16.8279 41.0211 16.0572Z"
+          fill="white"
+        />
+        <path
+          d="M45.7824 10.8016C45.9581 9.72565 45.2232 8.71186 44.1409 8.53721C43.0587 8.36256 42.0389 9.09319 41.8633 10.1691C41.6876 11.245 42.4225 12.2588 43.5048 12.4335C44.587 12.6081 45.6068 11.8775 45.7824 10.8016Z"
+          fill="#3F2D95"
+        />
+        <path
+          d="M35.4147 12.4576C36.5111 12.4576 37.3999 11.574 37.3999 10.484C37.3999 9.394 36.5111 8.51038 35.4147 8.51038C34.3183 8.51038 33.4294 9.394 33.4294 10.484C33.4294 11.574 34.3183 12.4576 35.4147 12.4576Z"
+          fill="#3F2D95"
+        />
+        <path
+          d="M30.0456 7.48764C27.1389 5.79036 25.053 7.41801 25.0311 7.43541L24.2366 6.45839C24.3504 6.367 27.0338 4.26934 30.6869 6.40399L30.0456 7.48764Z"
+          fill="#D2CBFF"
+        />
+        <path
+          d="M51.0778 8.58868H49.5303V9.84641H51.0778C51.2455 9.84641 51.4064 9.78016 51.525 9.66222C51.6437 9.54429 51.7103 9.38433 51.7103 9.21755C51.7103 9.05076 51.6437 8.89081 51.525 8.77287C51.4064 8.65494 51.2455 8.58868 51.0778 8.58868Z"
+          fill="#D2CBFF"
+        />
+        <path
+          d="M3.92236 8.58868C3.75459 8.58868 3.5937 8.65494 3.47507 8.77287C3.35644 8.89081 3.28979 9.05076 3.28979 9.21755C3.28979 9.38433 3.35644 9.54429 3.47507 9.66222C3.5937 9.78016 3.75459 9.84641 3.92236 9.84641H5.47202V8.58868H3.92236Z"
+          fill="#D2CBFF"
+        />
+        <path
+          d="M32.3284 26.0402C29.8223 29.9113 24.3437 29.8548 21.901 25.9554C21.4501 25.2199 20.266 25.8944 20.7278 26.6343C23.7221 31.4084 30.4417 31.4476 33.4994 26.7213C33.9744 25.988 32.799 25.3113 32.3284 26.0402Z"
+          fill="#D2CBFF"
+        />
+      </g>
+      <defs>
+        <linearGradient
+          id="paint0_linear_1_4835"
+          x1="27.5"
+          y1="2.70264"
+          x2="27.5"
+          y2="34"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stop-color="#6052C6" />
+          <stop offset="0.11" stop-color="#4839B1" />
+          <stop offset="1" stop-color="#6C5DD3" />
+        </linearGradient>
+        <linearGradient
+          id="paint1_linear_1_4835"
+          x1="27.4999"
+          y1="31.6152"
+          x2="27.4999"
+          y2="2.70264"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stop-color="#6C5DD3" />
+          <stop offset="0.11" stop-color="#7E72D2" />
+          <stop offset="1" stop-color="#6C5DD3" />
+        </linearGradient>
+        <clipPath id="clip0_1_4835">
+          <rect width="55" height="34" fill="white" />
+        </clipPath>
+      </defs>
+    </symbol>
+    <symbol
+      id="chevron-left"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+    >
+      <path
+        fill-rule="evenodd"
+        d="M7.72 12.53a.75.75 0 0 1 0-1.06l7.5-7.5a.75.75 0 1 1 1.06 1.06L9.31 12l6.97 6.97a.75.75 0 1 1-1.06 1.06l-7.5-7.5Z"
+        clip-rule="evenodd"
+      />
+    </symbol>
+    <symbol
+      id="chevron-right"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+    >
+      <path
+        fill-rule="evenodd"
+        d="M16.28 11.47a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 0 1-1.06-1.06L14.69 12 7.72 5.03a.75.75 0 0 1 1.06-1.06l7.5 7.5Z"
+        clip-rule="evenodd"
+      />
+    </symbol>
+    <symbol
+      id="chevron-down"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+    >
+      <path
+        fill-rule="evenodd"
+        d="M12.53 16.28a.75.75 0 0 1-1.06 0l-7.5-7.5a.75.75 0 0 1 1.06-1.06L12 14.69l6.97-6.97a.75.75 0 1 1 1.06 1.06l-7.5 7.5Z"
+        clip-rule="evenodd"
+      />
+    </symbol>
+    <symbol id="heart" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="white">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+    </symbol> 
+    <symbol
+      id="share"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="white"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M7.217 10.907a2.25 2.25 0 1 0 0 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186 9.566-5.314m-9.566 7.5 9.566 5.314m0 0a2.25 2.25 0 1 0 3.935 2.186 2.25 2.25 0 0 0-3.935-2.186Zm0-12.814a2.25 2.25 0 1 0 3.933-2.185 2.25 2.25 0 0 0-3.933 2.185Z"
+      />
+    </symbol>
+    <symbol
+      id="hand-thumb-up"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="white"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M6.633 10.25c.806 0 1.533-.446 2.031-1.08a9.041 9.041 0 0 1 2.861-2.4c.723-.384 1.35-.956 1.653-1.715a4.498 4.498 0 0 0 .322-1.672V2.75a.75.75 0 0 1 .75-.75 2.25 2.25 0 0 1 2.25 2.25c0 1.152-.26 2.243-.723 3.218-.266.558.107 1.282.725 1.282m0 0h3.126c1.026 0 1.945.694 2.054 1.715.045.422.068.85.068 1.285a11.95 11.95 0 0 1-2.649 7.521c-.388.482-.987.729-1.605.729H13.48c-.483 0-.964-.078-1.423-.23l-3.114-1.04a4.501 4.501 0 0 0-1.423-.23H5.904m10.598-9.75H14.25M5.904 18.5c.083.205.173.405.27.602.197.4-.078.898-.523.898h-.908c-.889 0-1.713-.518-1.972-1.368a12 12 0 0 1-.521-3.507c0-1.553.295-3.036.831-4.398C3.387 9.953 4.167 9.5 5 9.5h1.053c.472 0 .745.556.5.96a8.958 8.958 0 0 0-1.302 4.665c0 1.194.232 2.333.654 3.375Z"
+      />
+    </symbol>
+    <symbol
+      id="circle"
+      viewBox="0 0 10 10"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle cx="5.3782" cy="4.86056" r="4.61941" fill="#6C5DD3" />
+    </symbol>
+    <symbol id="play-button" viewBox="0 0 21 23" fill="none" xmlns="http://www. w3.org/2000/svg">
+      <path d="M18.8491 8.06756C14.6781 5.19768 9.55068 2.29857 5.75912 0.512364C3.6167 -0.608691 0.485137 1.32404 0.317988 4.03924C-0.0317773 8.79863 -0.0317773 13.5773 0.317988 18.3367C0.485137 21.0519 3.6167 22.9846 5.75912 21.864C9.55068 20.0778 14.6781 17.1787 18.8491 14.3088C19.9869 13.5207 20.4862 12.3511 20.4927 11.1884C20.4862 10.0256 19.9874 8.85604 18.8491 8.06799V8.06756Z" fill="white"/>
+  </symbol>
+  <symbol id="details" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="white">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM18.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
+  </symbol>
+  <symbol id="envelope" xmlns="http://www.w3.org/2000/svg" fill="#6C5DD3" viewBox="0 0 24 24" stroke-width="0.7" stroke="currentColor">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
+  </symbol>
+  <symbol id="twitter" viewBox="0 0 23 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M21.3977 1.06271L22.1312 1.01243C22.1217 0.86289 22.0699 0.719585 21.9823 0.600461C21.8947 0.481336 21.7753 0.391687 21.6389 0.342735C21.5025 0.293783 21.3552 0.287704 21.2155 0.32526C21.0758 0.362816 20.9498 0.442337 20.8534 0.553868L21.3977 1.06271ZM20.6671 5.57067C20.6671 5.36865 20.5898 5.1749 20.4523 5.03204C20.3147 4.88919 20.1281 4.80893 19.9336 4.80893C19.7391 4.80893 19.5525 4.88919 19.4149 5.03204C19.2774 5.1749 19.2001 5.36865 19.2001 5.57067H20.6671ZM0.891637 17.8209V17.0592C0.734136 17.059 0.580756 17.1114 0.454186 17.2088C0.327617 17.3061 0.23458 17.4432 0.18884 17.5997C0.1431 17.7562 0.147085 17.9239 0.200206 18.0779C0.253328 18.2318 0.352764 18.364 0.483805 18.4547L0.891637 17.8209ZM2.35573 1.06271L3.04376 0.796101C2.99376 0.657019 2.90572 0.536142 2.79045 0.448328C2.67518 0.360515 2.53772 0.309594 2.39496 0.301825C2.2522 0.294056 2.11036 0.329779 1.98689 0.4046C1.86342 0.479422 1.76369 0.590081 1.69997 0.722974L2.35573 1.06271ZM8.21502 14.774L8.73434 15.3118C8.82245 15.22 8.88655 15.1064 8.92058 14.9817C8.9546 14.857 8.95743 14.7253 8.92878 14.5992C8.90014 14.473 8.84098 14.3566 8.7569 14.2608C8.67281 14.165 8.56659 14.0931 8.44827 14.0519L8.21502 14.774ZM18.8128 2.54505L18.27 3.05694L18.5341 3.36011L18.9228 3.29917L18.8128 2.54505ZM20.6671 1.11298C20.7419 2.29825 20.6715 3.01733 20.4867 3.55968C20.3077 4.08528 19.9937 4.51795 19.426 5.08316L20.4412 6.18311C21.0837 5.54325 21.5796 4.91558 21.8701 4.06853C22.1532 3.23671 22.2119 2.27387 22.1312 1.01243L20.6671 1.11298ZM20.6671 6.67976V5.57067H19.2001V6.68129H20.6671V6.67976ZM10.4126 5.6956V7.15661H11.8796V5.6956H10.4126ZM10.4126 7.15661V7.91835H11.8796V7.15661H10.4126ZM15.5985 0.300971C14.9167 0.301371 14.2417 0.441225 13.612 0.712547C12.9822 0.983869 12.4101 1.38135 11.9283 1.88228C11.4464 2.38322 11.0643 2.97781 10.8038 3.6321C10.5432 4.28639 10.4093 4.98756 10.4097 5.6956H11.8767C11.8763 5.1875 11.9723 4.68431 12.1593 4.21475C12.3462 3.7452 12.6203 3.31849 12.9661 2.959C13.3119 2.59951 13.7224 2.31429 14.1744 2.11962C14.6263 1.92495 15.1107 1.82465 15.6 1.82445V0.300971H15.5985ZM19.1986 6.67976C19.2001 13.2551 14.0758 18.5827 7.7573 18.5827V20.1061C14.887 20.1061 20.6671 14.0945 20.6671 6.67976H19.1986ZM1.66916 1.32932C2.46722 3.5414 5.45995 7.91835 11.1461 7.91835V6.39487C6.28148 6.39487 3.70979 2.64712 3.04229 0.796101L1.66916 1.32932ZM1.69997 0.722974C0.163993 3.91618 -0.0721971 7.01493 1.04421 9.65359C2.15768 12.2846 4.55333 14.3078 7.98323 15.4961L8.44827 14.0519C5.28684 12.955 3.28729 11.1694 2.38653 9.03963C1.48872 6.91742 1.61928 4.30162 3.01295 1.40244L1.69997 0.722974ZM7.69569 14.2362C6.81254 15.1549 4.15723 17.0592 0.891637 17.0592V18.5827C4.65602 18.5827 7.66488 16.4254 8.73434 15.3118L7.69569 14.2362ZM19.3571 2.03469C18.8828 1.48845 18.3032 1.05184 17.656 0.753165C17.0087 0.454493 16.3083 0.300432 15.6 0.300971V1.82445C16.6577 1.82445 17.6098 2.29825 18.27 3.05694L19.3571 2.03469ZM18.9228 3.29917C20.0914 3.10091 21.1585 2.49084 21.9449 1.57155L20.8534 0.553868C20.2941 1.21009 19.535 1.64727 18.7028 1.79245L18.9228 3.29917ZM0.483805 18.4547C2.89119 20.1214 5.41447 20.1061 7.7573 20.1061V18.5827C5.36606 18.5827 3.28582 18.5659 1.29947 17.1872L0.483805 18.4547Z" fill="white"/>
+    </symbol>
+    <symbol id="linkedin" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M5.27363 2.5015C5.27334 3.08514 5.04121 3.64475 4.62831 4.05724C4.21541 4.46972 3.65557 4.70129 3.07193 4.701C2.4883 4.70071 1.92868 4.46858 1.5162 4.05568C1.10371 3.64278 0.872145 3.08294 0.872437 2.4993C0.872729 1.91567 1.10486 1.35605 1.51775 0.943567C1.93065 0.531081 2.4905 0.299513 3.07413 0.299805C3.65777 0.300097 4.21738 0.532225 4.62987 0.945123C5.04235 1.35802 5.27392 1.91787 5.27363 2.5015ZM5.33965 6.33054H0.938455V20.1063H5.33965V6.33054ZM12.2935 6.33054H7.91435V20.1063H12.2495V12.8773C12.2495 8.85023 17.4979 8.47612 17.4979 12.8773V20.1063H21.8441V11.3809C21.8441 4.59207 14.076 4.84514 12.2495 8.17904L12.2935 6.33054Z" fill="white"/>
+    </symbol>
+    <symbol id="wapp" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M19.2797 3.40262C18.2709 2.38366 17.0694 1.57576 15.7451 1.02603C14.4208 0.476302 13.0004 0.195754 11.5666 0.200749C5.55894 0.200749 0.662609 5.09708 0.662609 11.1047C0.662609 13.0302 1.16875 14.9007 2.115 16.5512L0.574585 22.2067L6.35115 20.6883C7.94658 21.5575 9.74007 22.0197 11.5666 22.0197C17.5742 22.0197 22.4705 17.1233 22.4705 11.1157C22.4705 8.19992 21.3372 5.46018 19.2797 3.40262ZM11.5666 20.1712C9.93812 20.1712 8.34269 19.731 6.94531 18.9058L6.61522 18.7078L3.18229 19.61L4.09554 16.2651L3.87548 15.924C2.97076 14.4793 2.49036 12.8093 2.4891 11.1047C2.4891 6.10935 6.56021 2.03825 11.5556 2.03825C13.9762 2.03825 16.2538 2.9845 17.9593 4.70097C18.8038 5.54156 19.473 6.5414 19.9282 7.64254C20.3834 8.74367 20.6155 9.92421 20.611 11.1157C20.633 16.1111 16.5619 20.1712 11.5666 20.1712ZM16.5399 13.3933C16.2648 13.2613 14.9225 12.6011 14.6804 12.5021C14.4273 12.4141 14.2513 12.3701 14.0642 12.6341C13.8772 12.9092 13.3601 13.5254 13.206 13.7014C13.052 13.8885 12.8869 13.9105 12.6118 13.7674C12.3368 13.6354 11.4565 13.3383 10.4223 12.4141C9.60804 11.6879 9.06889 10.7966 8.90384 10.5215C8.7498 10.2465 8.88184 10.1034 9.02488 9.9604C9.14591 9.83936 9.29995 9.64131 9.43199 9.48727C9.56402 9.33323 9.61904 9.21219 9.70706 9.03615C9.79509 8.84909 9.75107 8.69505 9.68506 8.56302C9.61904 8.43098 9.06889 7.08862 8.84883 6.53847C8.62877 6.01033 8.39771 6.07634 8.23266 6.06534H7.70452C7.51747 6.06534 7.23139 6.13136 6.97832 6.40643C6.73626 6.68151 6.03206 7.34169 6.03206 8.68405C6.03206 10.0264 7.01133 11.3248 7.14337 11.5008C7.2754 11.6879 9.06889 14.4386 11.7976 15.6159C12.4468 15.902 12.9529 16.0671 13.349 16.1881C13.9982 16.3971 14.5924 16.3641 15.0655 16.2981C15.5937 16.2211 16.683 15.6379 16.903 14.9998C17.1341 14.3616 17.1341 13.8224 17.0571 13.7014C16.98 13.5804 16.815 13.5254 16.5399 13.3933Z" fill="white"/>
+      </symbol>
+      <symbol id="instagram" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6.58229 0.200684H15.8248C19.3458 0.200684 22.2065 3.06146 22.2065 6.58241V15.8249C22.2065 17.5175 21.5342 19.1407 20.3374 20.3375C19.1406 21.5343 17.5173 22.2067 15.8248 22.2067H6.58229C3.06134 22.2067 0.200562 19.3459 0.200562 15.8249V6.58241C0.200562 4.88987 0.872921 3.26666 2.06973 2.06985C3.26653 0.873043 4.88975 0.200684 6.58229 0.200684ZM6.36223 2.40128C5.31169 2.40128 4.30418 2.81861 3.56133 3.56145C2.81848 4.3043 2.40116 5.31181 2.40116 6.36235V16.045C2.40116 18.2346 4.17264 20.0061 6.36223 20.0061H16.0449C17.0954 20.0061 18.1029 19.5887 18.8458 18.8459C19.5886 18.103 20.0059 17.0955 20.0059 16.045V6.36235C20.0059 4.17276 18.2345 2.40128 16.0449 2.40128H6.36223ZM16.9801 4.05173C17.3449 4.05173 17.6947 4.19663 17.9526 4.45457C18.2106 4.7125 18.3555 5.06233 18.3555 5.4271C18.3555 5.79187 18.2106 6.1417 17.9526 6.39964C17.6947 6.65757 17.3449 6.80247 16.9801 6.80247C16.6153 6.80247 16.2655 6.65757 16.0076 6.39964C15.7496 6.1417 15.6047 5.79187 15.6047 5.4271C15.6047 5.06233 15.7496 4.7125 16.0076 4.45457C16.2655 4.19663 16.6153 4.05173 16.9801 4.05173ZM11.2035 5.70218C12.6626 5.70218 14.062 6.2818 15.0937 7.31353C16.1254 8.34525 16.705 9.74458 16.705 11.2037C16.705 12.6628 16.1254 14.0621 15.0937 15.0938C14.062 16.1255 12.6626 16.7052 11.2035 16.7052C9.74446 16.7052 8.34513 16.1255 7.3134 15.0938C6.28167 14.0621 5.70205 12.6628 5.70205 11.2037C5.70205 9.74458 6.28167 8.34525 7.3134 7.31353C8.34513 6.2818 9.74446 5.70218 11.2035 5.70218ZM11.2035 7.90277C10.3281 7.90277 9.4885 8.25054 8.86946 8.86958C8.25042 9.48862 7.90265 10.3282 7.90265 11.2037C7.90265 12.0791 8.25042 12.9187 8.86946 13.5378C9.4885 14.1568 10.3281 14.5046 11.2035 14.5046C12.079 14.5046 12.9186 14.1568 13.5376 13.5378C14.1567 12.9187 14.5044 12.0791 14.5044 11.2037C14.5044 10.3282 14.1567 9.48862 13.5376 8.86958C12.9186 8.25054 12.079 7.90277 11.2035 7.90277Z" fill="white"/>
+        </symbol>
+        
+      
+      
+    
+  </svg>
+
+  <body class="bg-mainbg">
+    <!-- Start Header Section -->
+    <header class="flex justify-between m-auto w-[64rem] h-12 mt-10 pt-4 pb-4">
+      <div class="flex justify-center items-center">
+        <svg class="w-12 h-6"><use xlink:href="#game"></use></svg>
+
+        <ul class="flex list-none font-Dana text-lg text-text-color">
+          <li class="pr-4">خانه</li>
+          <li class="pr-4">فروشگاه</li>
+          <li class="pr-4">درباره ما</li>
+          <li class="pr-4">تماس باما</li>
+          <li class="pr-4">وبلاگ</li>
+        </ul>
+      </div>
+      <div class="flex justify-center items-center">
+        <div class="flex justify-center items-center pl-6">
+          <svg class="w-5 h-5 text-white ml-2">
+            <use xlink:href="#magnifying-glass"></use>
+          </svg>
+          <svg class="w-5 h-5 text-white"><use xlink:href="#moon"></use></svg>
+        </div>
+        <div>
+          <button
+            class="bg-violet-500 text-white font-Dana text-sm py-2 px-9 rounded-lg"
+          >
+            ثبت نام
+          </button>
+        </div>
+      </div>
+    </header>
+    <!-- Finish Header Section -->
+
+    <!-- Start Slider Section -->
+    <section
+      id="default-carousel"
+      class="relative w-[64rem] h-96 mt-8 mx-auto"
+      data-carousel="slide"
+    >
+      <!-- Carousel wrapper -->
+      <div class="relative h-96 overflow-hidden rounded-lg md:h-96">
+        <!-- Item 1 -->
+        <div class="hidden duration-700 ease-in-out h-96" data-carousel-item>
+          <img
+            src="./images/1 (1).jpg"
+            class="absolute block w-full h-96 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+            alt="..."
+          />
+        </div>
+        <!-- Item 2 -->
+        <div class="hidden duration-700 ease-in-out h-96" data-carousel-item>
+          <img
+            src="images/2.jpg"
+            class="absolute block w-full h-96 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+            alt="..."
+          />
+        </div>
+        <!-- Item 3 -->
+        <div class="hidden duration-700 ease-in-out h-96" data-carousel-item>
+          <img
+            src="images/3.jpg"
+            class="absolute block w-full h-96 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+            alt="..."
+          />
+        </div>
+        <!-- Item 4 -->
+        <div class="hidden duration-700 ease-in-out h-96" data-carousel-item>
+          <img
+            src="images/4.jpg"
+            class="absolute block w-full h-96 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+            alt="..."
+          />
+        </div>
+      </div>
+      <!-- Slider indicators -->
+      <div
+        class="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse"
+      >
+        <button
+          type="button"
+          class="w-3 h-3 rounded-full"
+          aria-current="true"
+          aria-label="Slide 1"
+          data-carousel-slide-to="0"
+        ></button>
+        <button
+          type="button"
+          class="w-3 h-3 rounded-full"
+          aria-current="false"
+          aria-label="Slide 2"
+          data-carousel-slide-to="1"
+        ></button>
+        <button
+          type="button"
+          class="w-3 h-3 rounded-full"
+          aria-current="false"
+          aria-label="Slide 3"
+          data-carousel-slide-to="2"
+        ></button>
+        <button
+          type="button"
+          class="w-3 h-3 rounded-full"
+          aria-current="false"
+          aria-label="Slide 4"
+          data-carousel-slide-to="3"
+        ></button>
+      </div>
+      <!-- Slider controls -->
+      <button
+        type="button"
+        class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+        data-carousel-prev
+      >
+        <span
+          class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none"
+        >
+          <svg
+            class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 6 10"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M5 1 1 5l4 4"
+            />
+          </svg>
+          <span class="sr-only">Previous</span>
+        </span>
+      </button>
+      <button
+        type="button"
+        class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+        data-carousel-next
+      >
+        <span
+          class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none"
+        >
+          <svg
+            class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 6 10"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="m1 9 4-4-4-4"
+            />
+          </svg>
+          <span class="sr-only">Next</span>
+        </span>
+      </button>
+    </section>
+    <!-- Finish Slider Section -->
+
+    <!-- Start Main Section -->
+    <main class="flex flex-col w-[64rem] mx-auto mt-16">
+      <div class="flex justify-between items-center">
+        <h2 class="text-2xl font-MorabbaMedium text-white">
+          جدیدترین بازی های فروشگاه
+        </h2>
+        <form class="max-w-sm w-64">
+          <select
+            id="countries"
+            class="bg-slate-700 text-slate-400 border-none text-sm rounded-lg block w-full p-2.5 font-Dana"
+          >
+            <option selected>مرتب سازی بر اساس</option>
+            <option value="US" class="border-none">پر فروش ترین</option>
+            <option value="CA" class="border-none">پر بازدید ترین</option>
+            <option value="FR" class="border-none">جدیدترین</option>
+            <option value="DE" class="border-none">قدیمی ترین</option>
+          </select>
+        </form>
+      </div>
+
+      <div class="flex justify-between items-center flex-wrap mt-16">
+        <div
+          class="group max-w-maxw rounded-3xl bg-card-bg hover:scale-110 transition ease-in-out hover:-translate-y-1 duration-200"
+        >
+          <img
+            src="./images/fifa.png"
+            alt=""
+            class="w-full h-44 group-hover:shadow-[0px_-8px_50px_1px] group-hover:shadow-indigo-300/30 rounded-t-3xl"
+          />
+          <h3 class="font-Dana text-white px-4 py-3">
+            بازی FIFA 23 برای کنسول پلی استیشن ۵
+          </h3>
+          <span class="text-card-price font-Dana px-4 absolute"
+            >قیمت ۴/۵۰۰ هزار تومان</span
+          >
+          <div
+            class="w-full h-7 bg-gradient-to-b from-gard1/0 via-gard2/5 to-gard3/10 border-b border-b-orange-100/10 top-2 relative"
+          ></div>
+          <div class="flex justify-between items-center pt-6 font-Dana text-xs">
+            <div class="flex justify-center items-center pr-4">
+              <svg class="w-2 h-2"><use xlink:href="#circle"></use></svg>
+              <p class="text-text-input pr-1">۲۵۷ نفر خرید کرده اند.</p>
+            </div>
+            <button
+              class="text-card-price bg-card-price/10 p-4 rounded-r-xl rounded-bl-3xl text-sm group-hover:bg-card-price group-hover:text-white group-hover:shadow-[0px_0px_10px_2px] group-hover:shadow-card-price/20"
+            >
+              خرید
+            </button>
+          </div>
+        </div>
+        <div
+          class="group max-w-maxw rounded-3xl bg-card-bg hover:scale-110 transition ease-in-out hover:-translate-y-1 duration-200"
+        >
+          <img
+            src="./images/fortnite (1).jpg"
+            alt=""
+            class="w-full h-44 group-hover:shadow-[0px_-8px_50px_1px] group-hover:shadow-indigo-300/30 rounded-t-3xl"
+          />
+          <h3 class="font-Dana text-white px-4 py-3">
+            بازی Fortnite برای کنسول پلی استیشن ۵
+          </h3>
+          <span class="text-card-price font-Dana px-4 absolute"
+            >قیمت ۳/۴۵۰ هزار تومان</span
+          >
+          <div
+            class="w-full h-7 bg-gradient-to-b from-gard1/0 via-gard2/5 to-gard3/10 border-b border-b-orange-100/10 top-2 relative"
+          ></div>
+          <div class="flex justify-between items-center pt-6 font-Dana text-xs">
+            <div class="flex justify-center items-center pr-4">
+              <svg class="w-2 h-2"><use xlink:href="#circle"></use></svg>
+              <p class="text-text-input pr-1">411 نفر خرید کرده اند.</p>
+            </div>
+            <button
+              class="text-card-price bg-card-price/10 p-4 rounded-r-xl rounded-bl-3xl text-sm group-hover:bg-card-price group-hover:text-white group-hover:shadow-[0px_0px_10px_2px] group-hover:shadow-card-price/20"
+            >
+              خرید
+            </button>
+          </div>
+        </div>
+        <div
+          class="group max-w-maxw rounded-3xl bg-card-bg hover:scale-110 transition ease-in-out hover:-translate-y-1 duration-200"
+        >
+          <img
+            src="./images/diablo.jpg"
+            alt=""
+            class="w-full h-44 group-hover:shadow-[0px_-8px_50px_1px] group-hover:shadow-indigo-300/30 rounded-t-3xl"
+          />
+          <h3 class="font-Dana text-white px-4 py-3">
+            بازی Diablo 4 برای کنسول پلی استیشن ۵
+          </h3>
+          <span class="text-card-price font-Dana px-4 absolute"
+            >قیمت ۳/۶۰۰ هزار تومان</span
+          >
+          <div
+            class="w-full h-7 bg-gradient-to-b from-gard1/0 via-gard2/5 to-gard3/10 border-b border-b-orange-100/10 top-2 relative"
+          ></div>
+          <div class="flex justify-between items-center pt-6 font-Dana text-xs">
+            <div class="flex justify-center items-center pr-4">
+              <svg class="w-2 h-2"><use xlink:href="#circle"></use></svg>
+              <p class="text-text-input pr-1">130 نفر خرید کرده اند.</p>
+            </div>
+            <button
+              class="text-card-price bg-card-price/10 p-4 rounded-r-xl rounded-bl-3xl text-sm group-hover:bg-card-price group-hover:text-white group-hover:shadow-[0px_0px_10px_2px] group-hover:shadow-card-price/20"
+            >
+              خرید
+            </button>
+          </div>
+        </div>
+        <div
+          class="group max-w-maxw rounded-3xl bg-card-bg hover:scale-110 transition ease-in-out hover:-translate-y-1 duration-200"
+        >
+          <img
+            src="./images/callof.jpg"
+            alt=""
+            class="w-full h-44 group-hover:shadow-[0px_-8px_50px_1px] group-hover:shadow-indigo-300/30 rounded-t-3xl"
+          />
+          <h3 class="font-Dana text-white px-4 py-3">
+            بازی Call Of Duty برای کنسول پلی استیشن ۵
+          </h3>
+          <span class="text-card-price font-Dana px-4 absolute"
+            >قیمت ۲/۳۰۰ هزار تومان</span
+          >
+          <div
+            class="w-full h-7 bg-gradient-to-b from-gard1/0 via-gard2/5 to-gard3/10 border-b border-b-orange-100/10 top-2 relative"
+          ></div>
+          <div class="flex justify-between items-center pt-6 font-Dana text-xs">
+            <div class="flex justify-center items-center pr-4">
+              <svg class="w-2 h-2"><use xlink:href="#circle"></use></svg>
+              <p class="text-text-input pr-1">۲۵۷ نفر خرید کرده اند.</p>
+            </div>
+            <button
+              class="text-card-price bg-card-price/10 p-4 rounded-r-xl rounded-bl-3xl text-sm group-hover:bg-card-price group-hover:text-white group-hover:shadow-[0px_0px_10px_2px] group-hover:shadow-card-price/20"
+            >
+              خرید
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- Finish Main Section -->
+
+    <!-- Start Article Section -->
+    <article class="flex flex-col justify-between w-[64rem] mx-auto mt-16 mb-24">
+      <div class="flex">
+        <h2
+          class="p-4 border-b border-b-white font-MorabbaMedium mx-auto text-white text-2xl"
+        >
+          جدیدترین مقالات
+        </h2>
+      </div>
+
+      <div class="flex justify-between mt-14">
+        <div
+          class="w-3/6 bg-cover bg-right-top overflow-hidden rounded-3xl"
+          style="background-image: url(./images/neihbor.jpg); height: 662px"
+        >
+          <div class="flex flex-col justify-between h-full">
+            <div class="flex justify-end gap-1 items-center m-8">
+              <div class="bg-white rounded-full p-3">
+                <svg class="w-4 h-4">
+                  <use xlink:href="#chevron-right"></use>
+                </svg>
+              </div>
+              <div class="bg-white rounded-full p-3">
+                <svg class="w-4 h-4">
+                  <use xlink:href="#chevron-left"></use>
+                </svg>
+              </div>
+            </div>
+            <div
+              class="p-8 bg-gradient-to-b from-slate-950/0 via-slate-950/80 to-slate-950/90 w-full"
+            >
+              <div class="flex font-DanaDemiBold text-xs p-3 text-white">
+                <span class="bg-violet-500/50 py-2 px-3 rounded-md"
+                  >سبک پازل</span
+                >
+                <span class="bg-violet-500/50 py-2 px-3 mr-1 rounded-md"
+                  >بازی های فکری</span
+                >
+              </div>
+              <h3 class="text-white font-DanaDemiBold pr-2 text-2xl">
+                بازی Hello Neighbor منتشر شد
+              </h3>
+              <p
+                class="text-white font-Dana text-sm text-pretty mx-2 py-2 leading-6"
+              >
+                سلام همسایه از خاص ترین، زیباترین و محبوب ترین بازیهای <br>  ماجراجویی
+                – ترسناک با ساخت فوق العاده از tinyBuild برای اندروید <br> است که
+                دقایقی پیش ...
+              </p>
+              <button
+                class="bg-violet-500 text-white font-Dana text-sm py-3 px-5 rounded-lg m-2"
+              >
+                مشاهده مقاله
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="w-3/6">
+          <div class="group hover:bg-bg-tag/30 h-52 mr-5 mb-5 flex justify-center bg-article-bg rounded-3xl transition ease-in-out duration-200">
+            <div class="w-3/6 rounded-3xl overflow-hidden m-2">
+              <img src="./images/nba.jpg" alt="nba" class="w-full h-full">
+            </div>
+            <div class="w-3/6 m-4 flex flex-col justify-between">
+              <div class="flex font-Dana text-xs text-bg-tag">
+                <span class="bg-bg-tag/10 py-1 px-3 rounded-md group-hover:bg-tag-hover/10 group-hover:text-white"
+                  >اخبار</span
+                >
+                <span class="bg-bg-tag/10 py-1 px-3 mr-1 rounded-md group-hover:bg-tag-hover/10 group-hover:text-white""
+                  >ورزشی</span
+                >
+              </div>
+              <h3 class="font-DanaDemiBold text-white text-pretty">بازی NBA 2K 2023 رکورد پرفروش ترین بازی ورزشی را شکست.</h3>
+              <div class="flex justify-start items-center">
+                <svg class="w-2 h-2"><use xlink:href="#circle"></use></svg>
+                <p class="text-text-input pr-1 font-Dana text-xs">661 نفر این مقاله را خوانده اند.</p>
+              </div>
+              <div>
+                <button
+                class="bg-input-bg/10 text-white font-Dana text-xs py-3 px-5 rounded-lg group-hover:bg-bg-tag"
+              >
+                مشاهده مقاله
+              </button>
+              </div>
+            </div>
+          </div>
+          <div class="group hover:bg-bg-tag/30 flex justify-center bg-article-bg rounded-3xl h-52 mr-5 mb-5 transition ease-in-out duration-200">
+            <div class="w-3/6 rounded-3xl overflow-hidden m-2">
+              <img src="./images/assasins.jpg" alt="nba" class="w-full h-full">
+            </div>
+            <div class="w-3/6 m-4 flex flex-col justify-between">
+              <div class="flex font-Dana text-xs text-bg-tag">
+                <span class="bg-bg-tag/10 py-1 px-3 rounded-md group-hover:bg-tag-hover/10 group-hover:text-white"
+                  >اکشن</span
+                >
+                <span class="bg-bg-tag/10 py-1 px-3 mr-1 rounded-md group-hover:bg-tag-hover/10 group-hover:text-white""
+                  >بازی های جدید</span
+                >
+              </div>
+              <h3 class="font-DanaDemiBold text-white text-pretty">نسخه جدید اساسینس کرید با عنوان (میراژ) منتشر شد.</h3>
+              <div class="flex justify-start items-center">
+                <svg class="w-2 h-2"><use xlink:href="#circle"></use></svg>
+                <p class="text-text-input pr-1 font-Dana text-xs">176 نفر این مقاله را خوانده اند.</p>
+              </div>
+              <div>
+                <button
+                class="bg-input-bg/10 text-white font-Dana text-xs py-3 px-5 rounded-lg group-hover:bg-bg-tag"
+              >
+                مشاهده مقاله
+              </button>
+              </div>
+            </div>
+          </div>
+          <div class="group hover:bg-bg-tag/30 flex justify-center bg-article-bg rounded-3xl h-52 mr-5 transition ease-in-out duration-200">
+            <div class="w-3/6 rounded-3xl overflow-hidden m-2">
+              <img src="./images/lastofus.jpg" alt="last-of-us" class="w-full h-full">
+            </div>
+            <div class="w-3/6 m-4 flex flex-col justify-between">
+              <div class="flex font-Dana text-xs text-bg-tag">
+                <span class="bg-bg-tag/10 py-1 px-3 rounded-md group-hover:bg-tag-hover/10 group-hover:text-white"
+                  >موسیقی</span>
+              </div>
+              <h3 class="font-DanaDemiBold text-white text-pretty">موسیقی بازی The Last of Us رکورد دار بیشترین دانلود.</h3>
+              <div class="flex justify-start items-center">
+                <svg class="w-2 h-2"><use xlink:href="#circle"></use></svg>
+                <p class="text-text-input pr-1 font-Dana text-xs">1068 نفر این مقاله را خوانده اند.</p>
+              </div>
+              <div>
+                <button
+                class="bg-input-bg/10 text-white font-Dana text-xs py-3 px-5 rounded-lg group-hover:bg-bg-tag"
+              >
+                مشاهده مقاله
+              </button>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </article>
+    <!-- Finish Article Section -->
+
+    <!-- Start Review Section -->
+    <section class="flex flex-col justify-between w-[64rem] mx-auto mt-16 mb-24">
+      <div class="flex">
+        <h2
+          class="p-4 border-b border-b-white font-MorabbaMedium mx-auto text-white text-2xl"
+        >
+        جدیدترین نقد و بررسی ها
+        </h2>
+      </div>
+      <div class="flex justify-between gap-8 w-full mt-14">
+        <div class="group w-2/6 rounded-3xl bg-cover flex overflow-hidden" style="background-image: url(./images/meta.jpg); height: 400px;">
+          <div class="flex flex-col w-full justify-end items-center bg-gradient-to-b from-slate-950/0 via-slate-950/0 to-slate-950/90 group-hover:backdrop-blur-[2px] transition ease-in-out duration-200 group-hover:bg-black/20">
+            <div class="pb-4 flex flex-col justify-center items-center transition group-hover:-translate-y-32">
+              <h1 class="font-DanaMedium text-white text-xl font-semibold">ویدیو نقد و بررسی بازی </h1>
+            <p class="text-white text-sm font-DanaDemiBold pt-2">Metal Gear Solid Delta: Snake Eater</p>
+            </div>
+            <button>
+              <div class="bg-black/40 backdrop-blur-sm p-4 rounded-full flex justify-center items-center mb-3 transition group-hover:-translate-y-32 group-hover:bg-card-price group-hover:rounded-2xl">
+                  <svg class="w-4 h-4 relative left-px" ><use xlink:href="#play-button"></use></svg>
+                </div>
+              </button>
+          </div>
+        </div>
+        <div class="group w-2/6 rounded-3xl bg-cover flex overflow-hidden" style="background-image: url(./images/nba.jpg); height: 400px;">
+          <div class="flex flex-col w-full justify-end items-center bg-gradient-to-b from-slate-950/0 via-slate-950/0 to-slate-950/90 group-hover:backdrop-blur-[2px] transition ease-in-out duration-200 group-hover:bg-black/20">
+            <div class="pb-4 flex flex-col justify-center items-center transition group-hover:-translate-y-32">
+              <h1 class="font-DanaMedium text-white text-xl font-semibold">ویدیو نقد و بررسی بازی </h1>
+            <p class="text-white text-sm font-DanaDemiBold pt-2">NBA 2K 2023</p>
+            </div>
+            <button>
+              <div class="bg-black/40 backdrop-blur-sm p-4 rounded-full flex justify-center items-center mb-3 transition group-hover:-translate-y-32 group-hover:bg-card-price group-hover:rounded-2xl">
+                  <svg class="w-4 h-4 relative left-px" ><use xlink:href="#play-button"></use></svg>
+                </div>
+              </button>
+          </div>
+        </div>
+        <div class="group w-2/6 rounded-3xl bg-cover flex overflow-hidden" style="background-image: url(./images/alan.jpg); height: 400px;">
+          <div class="flex flex-col w-full justify-end items-center bg-gradient-to-b from-slate-950/0 via-slate-950/0 to-slate-950/90 group-hover:backdrop-blur-[2px] transition ease-in-out duration-200 group-hover:bg-black/20">
+            <div class="pb-4 flex flex-col justify-center items-center transition group-hover:-translate-y-32">
+              <h1 class="font-DanaMedium text-white text-xl font-semibold">ویدیو نقد و بررسی بازی </h1>
+            <p class="text-white text-sm font-DanaDemiBold pt-2">Alan Wake 2</p>
+            </div>
+            <button>
+              <div class="bg-black/40 backdrop-blur-sm p-4 rounded-full flex justify-center items-center mb-3 transition group-hover:-translate-y-32 group-hover:bg-card-price group-hover:rounded-2xl">
+                  <svg class="w-4 h-4 relative left-px" ><use xlink:href="#play-button"></use></svg>
+                </div>
+              </button>
+          </div>
+        </div>
+      </div>
+      <div class="flex justify-center items-center mt-10">
+        <button
+                class="bg-input-bg/10 text-white font-DanaDemiBold text-xs py-3 px-7 rounded-lg group-hover:bg-bg-tag"
+              >
+                مشاهده همه
+              </button>
+      </div>
+    </section>
+     <!-- Finish Review Section -->
+
+     <!-- Start Trailer Section -->
+      <section class="flex flex-col justify-between w-[64rem] mx-auto mt-16 mb-24">
+        <div class="flex">
+          <h2
+            class="p-4 border-b border-b-white font-MorabbaMedium mx-auto text-white text-2xl"
+          >
+          تریلر بازی ها
+          </h2>
+        </div>
+        <div class="flex flex-col justify-center items-center w-full bg-cover rounded-3xl overflow-hidden bg-article-bg mt-14">
+          <div class="flex flex-col border-b border-b-black/50">
+            <div class="group flex justify-center bg-cover bg-center rounded-3xl" style="background-image: url(./images/metagear.png); height: 350px;">
+              <button>
+                <div class="bg-black/40 backdrop-blur-sm p-5 rounded-full flex justify-center items-center mb-3 transition group-hover:bg-card-price group-hover:rounded-2xl">
+                    <svg class="w-6 h-6 relative left-px" ><use xlink:href="#play-button"></use></svg>
+                  </div>
+                </button>
+
+            </div>
+            <div class="p-8">
+              <h1 class="font-DanaMedium text-white text-2xl mb-4">تریلر رسمی بازی Metal Gear Solid Delta: Snake Eater</h1>
+            <p class="font-Dana text-lg text-input-bg leading-8">شایعه ساخت Metal Gear Solid Delta: Snake Eater قوت گرفت. طبق گفته ها و نشریات وابسته به استودیو های سازنده این عنوان خاطره انگیز، خبر های خوبی از ساخت نسخه ریمیک و یا همان بهبود یافته در راه است.</p>
+            </div>
+          </div>
+          <div class="flex justify-between w-full p-8">
+            <div class="flex justify-center">
+              <div class="flex justify-center items-center">
+                <svg class="w-6 h-6"><use xlink:href="#heart"></use></svg>
+                <span class="font-DanaDemiBold text-white text-sm pr-1">افزودن به لیست علاقه مندی ها</span>
+              </div>
+              <div class="flex justify-center items-center pr-6">
+                <svg class="w-6 h-6"><use xlink:href="#share"></use></svg>
+                <span class="font-DanaDemiBold text-white text-sm pr-1"> اشتراک گذاری</span>
+              </div>
+              <div class="flex justify-center items-center pr-6">
+                <svg class="w-6 h-6"><use xlink:href="#hand-thumb-up"></use></svg>
+                <span class="font-DanaDemiBold text-white text-sm pr-1">پسندیدم</span>
+              </div>
+            </div>
+            <div class="bg-input-bg/20 p-2 rounded-xl">
+              <svg class="w-8 h-8"><use xlink:href="#details"></use></svg>
+            </div>
+          </div>
+        </div>
+        <div class="flex gap-3 mt-4">
+          <div class="flex flex-col justify-between w-1/4 rounded-3xl bg-article-bg overflow-hidden">
+            <div class="bg-cover" style="background-image: url(./images/call.jpg); height: 160px;">
+            </div>
+            <div class="p-4 flex flex-col justify-between">
+              <h3 class="font-Dana text-white text-sm leading-6">تریلر نسخه جدید Call Of Duty Mobile</h3>
+              <div class="flex items-center font-Dana text-text-input text-xs py-3">
+                <svg class="w-2 h-2">
+                  <use xlink:href="#circle"></use>
+                </svg>
+                <span class="pr-1">۲۱ بازدید</span>
+                <svg class="w-2 h-2 mr-3">
+                  <use xlink:href="#circle"></use>
+                </svg>
+                <span class="pr-1">دو روز پیش</span>
+              </div>
+              <span class="font-Dana text-white text-sm">منتشر کننده : آرمان</span>
+            </div>
+          </div>
+          <div class="flex flex-col justify-between w-1/4 rounded-3xl bg-article-bg overflow-hidden">
+            <div class="bg-cover bg-right" style="background-image: url(./images/marathon.jpg); height: 160px;">
+            </div>
+            <div class="p-4 flex flex-col justify-between">
+              <h3 class="font-Dana text-white text-sm leading-6">تریلر جذاب و زیبای بازی محبوب Marathon</h3>
+              <div class="flex items-center font-Dana text-text-input text-xs py-3">
+                <svg class="w-2 h-2">
+                  <use xlink:href="#circle"></use>
+                </svg>
+                <span class="pr-1">34 بازدید</span>
+                <svg class="w-2 h-2 mr-3">
+                  <use xlink:href="#circle"></use>
+                </svg>
+                <span class="pr-1">شش روز پیش</span>
+              </div>
+              <span class="font-Dana text-white text-sm">منتشر کننده : احمد</span>
+            </div>
+          </div>
+          <div class="flex flex-col w-1/4 rounded-3xl bg-article-bg overflow-hidden">
+            <div class="bg-cover bg-center" style="background-image: url(./images/Diablo-4.webp); height: 160px;">
+            </div>
+            <div class="p-4">
+              <h3 class="font-Dana text-white text-sm leading-6">اوین لانچ تریلر سینمایی و لایو اکشن بازی Diablo 4 </h3>
+              <div class="flex items-center font-Dana text-text-input text-xs py-3">
+                <svg class="w-2 h-2">
+                  <use xlink:href="#circle"></use>
+                </svg>
+                <span class="pr-1">100 بازدید</span>
+                <svg class="w-2 h-2 mr-3">
+                  <use xlink:href="#circle"></use>
+                </svg>
+                <span class="pr-1">یک هفته روز پیش</span>
+              </div>
+              <span class="font-Dana text-white text-sm">منتشر کننده : رضا</span>
+            </div>
+          </div>
+          <div class="flex flex-col w-1/4 rounded-3xl bg-article-bg overflow-hidden">
+            <div class="bg-cover" style="background-image: url(./images/spider-man-2.jpg); height: 160px;">
+            </div>
+            <div class="p-4">
+              <h3 class="font-Dana text-white text-sm leading-6">نخستین تریلر گیم‌پلی بازی Marvel’s Spider-Man 2 منتشر شد.</h3>
+              <div class="flex items-center font-Dana text-text-input text-xs py-3">
+                <svg class="w-2 h-2">
+                  <use xlink:href="#circle"></use>
+                </svg>
+                <span class="pr-1">32 بازدید</span>
+                <svg class="w-2 h-2 mr-3">
+                  <use xlink:href="#circle"></use>
+                </svg>
+                <span class="pr-1">یک ماه پیش</span>
+              </div>
+              <span class="font-Dana text-white text-sm">منتشر کننده : شهرام</span>
+            </div>
+          </div>
+        </div>
+        <div class="flex justify-center items-center mt-10">
+          <button
+                  class="bg-input-bg/10 text-white font-DanaDemiBold text-xs py-3 px-7 rounded-lg group-hover:bg-bg-tag"
+                >
+                  مشاهده همه
+                </button>
+        </div>
+      </section>
+     <!-- Finish Trailer Section -->
+
+     <!-- Start Footer -->
+
+     <footer class="flex flex-col bg-article-bg">
+      <div class="flex justify-between w-[64rem] mx-auto">
+
+        <div class="w-2/6 py-8">
+          <h3 class="font-DanaDemiBold text-white text-lg pb-8">داغترین مطالب هفته</h3>
+          <div class="flex items-center pb-4">
+            <img src="./images/marathon.jpg" alt="" class="w-24 h-16 rounded-lg">
+            <p class="font-Dana text-white text-xs pr-2 leading-6">این هفته چه بازی های معرفی می شوند.</p>
+          </div>
+          <div class="flex items-center py-4">
+            <img src="./images/Diablo-4.webp" alt="" class="w-24 h-16 rounded-lg">
+            <p class="font-Dana text-white text-xs pr-2 leading-6">جدیدترین تریلر بازی های جدید</p>
+          </div>
+          <div class="flex items-center pt-4">
+            <img src="./images/fortnite (1).jpg" alt="" class="w-24 h-16 rounded-lg">
+            <p class="font-Dana text-white text-xs pr-2 leading-6">این هفته چه بازی های معرفی می شوند.</p>
+          </div>
+        </div>
+
+        <div class="w-2/6 py-8 pr-10">
+          <h3 class="font-DanaDemiBold text-white text-lg pb-8">پربازدیدترین صفحات</h3>
+          <div>
+            <ul class="font-Dana text-white text-sm cursor-pointer">
+              <li class="pb-6">جدیدترین بازی ها</li>
+              <li class="pb-6">مقالات</li>
+              <li class="pb-6">فروشگاه</li>
+              <li class="pb-6">ویدیوها</li>
+              <li class="pb-6">درباره ما</li>
+              <li>تماس باما</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="w-2/6 py-8">
+          <h3 class="font-DanaDemiBold text-white text-lg pb-8">عضویت در خبرنامه</h3>
+
+          <div class="flex items-center">
+            <div class="flex items-center justify-between bg-input-email overflow-hidden rounded-lg w-full py-2 px-3">
+              <div class="flex items-center">
+                <svg class="w-10 h-10">
+                  <use xlink:href="#envelope"></use>
+                </svg>
+                <input type="email" name="email" id="" placeholder="ایمیل خود را وارد کنید" class="font-DanaDemiBold bg-input-email/0 border-none focus:ring-0">
+              </div>
+            </div>
+            <div class="bg-bg-tag rounded-lg py-2 px-2">
+              <svg class="w-8 h-8">
+                <use xlink:href="#chevron-left"></use>
+              </svg>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between mt-14">
+            <svg class="w-8 h-8">
+              <use xlink:href="#twitter"></use>
+            </svg>
+            <svg class="w-8 h-8">
+              <use xlink:href="#linkedin"></use>
+            </svg>
+            <svg class="w-8 h-8">
+              <use xlink:href="#wapp"></use>
+            </svg>
+            <svg class="w-8 h-8">
+              <use xlink:href="#instagram"></use>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <div class="bg-card-price h-14 flex justify-center items-center">
+      <h3 class="text-white text-lg">❤️Developed by zana with</h3>
+    </div>
+
+     <!-- Finish Footer -->
+
+    <script src="../node_modules/flowbite/dist/flowbite.min.js"></script>
+  </body>
+</html>
